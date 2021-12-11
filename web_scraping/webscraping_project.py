@@ -94,4 +94,4 @@ if __name__ == '__main__':
     scrape_weather()  # 오늘의 날씨 정보 가져오기
     scrape_headline_news()  # 헤드라인 뉴스 정보 가져오기
     scrape_it_news()  # IT 뉴스 정보 가져오기
-    scrape_english()  # 오늘의 영어 회화 가져오기기
+    scrape_english()  # 오늘의 영어 회화 가져오기
