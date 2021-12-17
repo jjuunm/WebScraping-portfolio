@@ -43,14 +43,14 @@ def scrape_weather():
     print("{}".format(pm25))
     print()
 
-def scrape_headline_news():  # 네이버 헤드라인 뉴스 가져오기
-    print("[헤드라인 뉴스]")
+def scrape_sports_news():  # 네이버 스포츠 뉴스 가져오기
+    print("[스포츠 뉴스]")
     print()
-    url = "https://news.naver.com"
+    url = "https://sports.news.naver.com"
     soup = create_soup(url)
-    news_list = soup.find("ul", attrs = {"class":"hdline_article_list"}).find_all("li", limit=3)  # 3개의 기사만 가져오기
+    news_list = soup.find("ul", attrs = {"class":"today_list"}).find_all("li", limit=3)  # 3개의 기사만 가져오기
     for index, news in enumerate(news_list):
-        title = news.find("a").get_text().strip()
+        title = news.find("strong").get_text().strip()
         link = url + news.find("a")["href"]
         print_news(index, title, link)
     print()
@@ -92,6 +92,6 @@ def scrape_english():
 
 if __name__ == '__main__':
     scrape_weather()  # 오늘의 날씨 정보 가져오기
-    scrape_headline_news()  # 헤드라인 뉴스 정보 가져오기
+    scrape_sports_news()  # 헤드라인 뉴스 정보 가져오기
     scrape_it_news()  # IT 뉴스 정보 가져오기
     scrape_english()  # 오늘의 영어 회화 가져오기
